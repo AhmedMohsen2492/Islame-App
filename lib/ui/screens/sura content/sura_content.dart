@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:islame_route/model/sura_details_argument.dart';
+import '../../../model/sura_details_argument.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_theme.dart';
@@ -14,10 +14,8 @@ class SuraContent extends StatefulWidget {
 }
 
 class _SuraContentState extends State<SuraContent> {
-
   String suraContent = "";
-
-  int ayaNumber = 1 ;
+  bool isQuran = SuraDetailsArgument.isQuran;
 
   @override
   Widget build(BuildContext context) {
@@ -96,10 +94,17 @@ class _SuraContentState extends State<SuraContent> {
   void readSuraContent(String fileName) async {
     suraContent = await rootBundle.loadString(fileName) ;
     List<String> suraLines = suraContent.trim().split('\n');
-    for(int i=0 ; i< suraLines.length ; i++)
+    if(isQuran)
+    {
+      for(int i=0 ; i< suraLines.length ; i++)
       {
-        suraLines[i] += " (${i+1}) ";
+        suraLines[i] += "(${i+1}) ";
       }
+    }
+    else
+    {
+
+    }
     suraContent = suraLines.join("");
     setState(() {});
   }

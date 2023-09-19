@@ -45,6 +45,7 @@ class QuranTab extends StatelessWidget {
 
   Widget buildSuraNameItem(int index,BuildContext context)
   {
+    SuraDetailsArgument.isQuran = !SuraDetailsArgument.isQuran;
     return InkWell(
       onTap: ()
       {
@@ -53,7 +54,7 @@ class QuranTab extends StatelessWidget {
             SuraContent.routeName ,
         arguments:  SuraDetailsArgument(
             suraName: AppAssets.ArSuras[index],
-            fileName: "assets/files/${index+1}.txt"
+            fileName: "assets/files/quran/${index+1}.txt",
         ),
         ) ;
       },
