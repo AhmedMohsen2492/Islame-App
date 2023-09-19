@@ -4,6 +4,7 @@ import 'package:islame_route/model/sura_details_argument.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_theme.dart';
+import 'dart:ui' as ui;
 
 class SuraContent extends StatefulWidget {
   static String routeName = "SuraContent" ;
@@ -15,7 +16,7 @@ class SuraContent extends StatefulWidget {
 class _SuraContentState extends State<SuraContent> {
 
   String suraContent = "";
-  List<String> suraLines = [] ;
+
   int ayaNumber = 1 ;
 
   @override
@@ -75,8 +76,9 @@ class _SuraContentState extends State<SuraContent> {
                     thickness: 2,
                   ),
                   Text(
+                    textDirection: ui.TextDirection.rtl,
                     suraContent,
-                    textAlign: TextAlign.right,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w400,
@@ -93,8 +95,12 @@ class _SuraContentState extends State<SuraContent> {
 
   void readSuraContent(String fileName) async {
     suraContent = await rootBundle.loadString(fileName) ;
-    suraLines = suraContent.trim().split('\n');
-
+    List<String> suraLines = suraContent.trim().split('\n');
+    for(int i=0 ; i< suraLines.length ; i++)
+      {
+        suraLines[i] += " (${i+1}) ";
+      }
+    suraContent = suraLines.join("");
     setState(() {});
   }
 }
