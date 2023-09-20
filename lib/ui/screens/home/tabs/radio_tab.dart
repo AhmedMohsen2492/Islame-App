@@ -6,7 +6,7 @@ class RadioTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.deepPurple,
+      color: Colors.blue,
     );
   }
 }
