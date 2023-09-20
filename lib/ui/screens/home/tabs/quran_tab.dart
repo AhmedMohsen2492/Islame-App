@@ -45,7 +45,7 @@ class QuranTab extends StatelessWidget {
 
   Widget buildSuraNameItem(int index,BuildContext context)
   {
-    SuraDetailsArgument.isQuran = !SuraDetailsArgument.isQuran;
+    SuraDetailsArgument.isQuran = true;
     return InkWell(
       onTap: ()
       {
