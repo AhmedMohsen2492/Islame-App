@@ -9,6 +9,7 @@ abstract class AppAssets
   static const icRadio = "${baseImagesPath}ic_radio.png" ;
   static const ahadethTabLogo = "${baseImagesPath}ahadeth_tab_logo.png" ;
   static const quranTabLogo = "${baseImagesPath}quran_tab_logo.png" ;
+  static const radioTabLogo = "assets/images/radio.png" ;
   static const background = "assets/images/background.png" ;
 
   static const seb7aHead = "assets/images/head of seb7a.png" ;
