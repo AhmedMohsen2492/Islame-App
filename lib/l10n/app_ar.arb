@@ -1,0 +1,16 @@
+{
+  "islami" : "اسلامى",
+  "quran" : "القرآن",
+  "sura_name" : "اسم السورة",
+  "ahadeth" : "احاديث",
+  "el_ahadeth" : "الاحاديث",
+  "sebha" : "سبحة",
+  "number_of_praises" : "عدد التسبيحات",
+  "subhan_allah" : "سبحان الله",
+  "alhamd_allah" : "الحمدلله",
+  "allah_akbar" : "الله اكبر",
+  "radio" : "راديو",
+  "holy_quran_radio" : "اذاعة القرآان الكريم",
+  "settings" : "الاعدادات",
+  "dark_mode" : "الوضع المظلم"
+}

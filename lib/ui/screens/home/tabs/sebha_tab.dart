@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
 import '../../../utils/app_assets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaTab extends StatefulWidget {
 
@@ -9,13 +10,18 @@ class SebhaTab extends StatefulWidget {
 }
 
 class _SebhaTabState extends State<SebhaTab> {
-  List<String> azkar = ["subhan allah","alhamd allah","allah akbar"];
+  List<String> azkar = [];
   int zkrNumber = 0 ;
   int numberOfPraises = 0 ;
   double angle = 0 ;
 
   @override
   Widget build(BuildContext context) {
+
+    azkar = [AppLocalizations.of(context)!.subhan_allah,
+      AppLocalizations.of(context)!.alhamd_allah,
+      AppLocalizations.of(context)!.allah_akbar];
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,7 +51,7 @@ class _SebhaTabState extends State<SebhaTab> {
             height: 30,
           ),
           Text(
-            "Number of praises",
+            AppLocalizations.of(context)!.number_of_praises,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontWeight: FontWeight.w600,

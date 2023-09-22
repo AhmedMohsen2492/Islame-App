@@ -3,6 +3,7 @@ import 'package:islame_route/model/sura_details_argument.dart';
 import 'package:islame_route/ui/screens/sura%20content/sura_content.dart';
 import 'package:islame_route/ui/utils/app_assets.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QuranTab extends StatelessWidget {
   const QuranTab({Key? key}) : super(key: key);
@@ -21,7 +22,7 @@ class QuranTab extends StatelessWidget {
           thickness: 3,
         ),
         Text(
-          "Sura Name",
+          AppLocalizations.of(context)!.sura_name,
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.w600,

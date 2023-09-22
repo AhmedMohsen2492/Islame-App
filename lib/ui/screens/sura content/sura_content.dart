@@ -5,6 +5,7 @@ import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
 import '../../utils/app_theme.dart';
 import 'dart:ui' as ui;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SuraContent extends StatefulWidget {
   static String routeName = "SuraContent" ;
@@ -39,7 +40,7 @@ class _SuraContentState extends State<SuraContent> {
             color: AppColors.accent,
           ),
           title: Text(
-            "Islami" ,
+            AppLocalizations.of(context)!.islami ,
             style: AppTheme.appBarTitleTextStyle,
           ),
           backgroundColor: AppColors.transparent,

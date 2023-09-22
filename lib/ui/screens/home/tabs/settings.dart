@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
 import '../../../utils/app_theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _SettingScreenState extends State<SettingScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            "Settings",
+            AppLocalizations.of(context)!.settings,
             style: TextStyle(
               fontSize: 25,
               fontWeight: FontWeight.w600,
@@ -46,6 +47,7 @@ class _SettingScreenState extends State<SettingScreen> {
                 {
                   setState(() {});
                   arSwitchValue = newValue;
+
                 },
                 activeColor: AppColors.primary,
               ),
@@ -55,7 +57,7 @@ class _SettingScreenState extends State<SettingScreen> {
           Row(
             children: [
               Text(
-                "Dark mode",
+                AppLocalizations.of(context)!.dark_mode,
                 style: TextStyle(
                   color: AppColors.accent,
                   fontSize: 20,

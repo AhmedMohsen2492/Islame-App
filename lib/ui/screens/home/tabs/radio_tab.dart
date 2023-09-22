@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islame_route/ui/utils/app_assets.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class RadioTab extends StatelessWidget {
           height: 30,
         ),
         Text(
-          "Holy Quran Radio",
+          AppLocalizations.of(context)!.holy_quran_radio,
           style: TextStyle(
             fontSize: 25,
             fontWeight: FontWeight.w600,
