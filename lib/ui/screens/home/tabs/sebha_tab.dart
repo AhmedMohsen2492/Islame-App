@@ -20,21 +20,29 @@ class _SebhaTabState extends State<SebhaTab> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children:[
-          Image.asset(
-              AppAssets.seb7aHead,
-          ),
-          Expanded(
-            flex: 8,
-            child: AnimatedRotation(
-              turns: angle,
-              duration: Duration(milliseconds: 300),
-              child: Image(
-                image: AssetImage(AppAssets.seb7aBody),
-              ),
+          Container(
+            height: MediaQuery.of(context).size.height/2.52,
+            child: Stack(
+              alignment: AlignmentDirectional.topCenter,
+              children: [
+                Image.asset(
+                  AppAssets.seb7aHead,
+                ),
+                Container(
+                  alignment: AlignmentDirectional.bottomCenter,
+                  child: AnimatedRotation(
+                    turns: angle,
+                    duration: Duration(milliseconds: 300),
+                    child: Image(
+                      image: AssetImage(AppAssets.seb7aBody),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 30,
           ),
           Text(
             "Number of praises",
@@ -45,7 +53,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 30,
           ),
           Container(
             decoration: BoxDecoration(
@@ -62,7 +70,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 30,
           ),
           ElevatedButton(
               onPressed: () {
@@ -86,9 +94,7 @@ class _SebhaTabState extends State<SebhaTab> {
                 ),
               ),
           ),
-          Spacer(
-            flex: 2,
-          ),
+          Spacer(),
         ]
       ),
     );
