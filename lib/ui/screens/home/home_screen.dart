@@ -3,6 +3,7 @@ import 'package:islame_route/ui/screens/home/tabs/ahadeth_tab.dart';
 import 'package:islame_route/ui/screens/home/tabs/quran_tab.dart';
 import 'package:islame_route/ui/screens/home/tabs/radio_tab.dart';
 import 'package:islame_route/ui/screens/home/tabs/sebha_tab.dart';
+import 'package:islame_route/ui/screens/home/tabs/settings.dart';
 import 'package:islame_route/ui/utils/app_assets.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
 import 'package:islame_route/ui/utils/app_theme.dart';
@@ -21,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
     QuranTab(),
     AhadethTab(),
     SebhaTab(),
-    RadioTab()
+    RadioTab(),
+    SettingScreen(),
   ] ;
 
   @override
@@ -83,6 +85,12 @@ class _HomeScreenState extends State<HomeScreen> {
             AssetImage(AppAssets.icRadio),
           ),
           label: "Radio" ,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.settings
+          ),
+          label: "Setting" ,
         ),
       ],
     ),
