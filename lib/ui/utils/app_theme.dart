@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
-abstract class AppTheme
-{
+abstract class AppTheme {
   static ThemeData lightTheme = ThemeData(
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyLarge: TextStyle(
         color: AppColors.accent,
         fontSize: 25,
@@ -27,20 +25,20 @@ abstract class AppTheme
         fontWeight: FontWeight.normal,
       ),
     ),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.transparent,
       elevation: 0,
       centerTitle: true,
       titleTextStyle: TextStyle(
-        fontSize: 30 ,
-        fontWeight: FontWeight.bold ,
-        color: AppColors.accent ,
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: AppColors.accent,
       ),
     ),
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: AppColors.primary,
     ),
-    dividerTheme: DividerThemeData(
+    dividerTheme: const DividerThemeData(
       color: AppColors.primary,
       thickness: 3,
     ),
@@ -53,10 +51,9 @@ abstract class AppTheme
           ),
           backgroundColor: MaterialStateProperty.all(
             AppColors.primary,
-          )
-      ),
+          )),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: AppColors.accent,
       unselectedItemColor: AppColors.white,
     ),
@@ -65,7 +62,7 @@ abstract class AppTheme
   );
 
   static ThemeData darkTheme = ThemeData(
-    textTheme: TextTheme(
+    textTheme: const TextTheme(
       bodyLarge: TextStyle(
         color: AppColors.white,
         fontSize: 25,
@@ -87,20 +84,20 @@ abstract class AppTheme
         fontWeight: FontWeight.normal,
       ),
     ),
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
       backgroundColor: AppColors.transparent,
       elevation: 0,
       centerTitle: true,
       titleTextStyle: TextStyle(
-        fontSize: 30 ,
-        fontWeight: FontWeight.bold ,
-        color: AppColors.white ,
+        fontSize: 30,
+        fontWeight: FontWeight.bold,
+        color: AppColors.white,
       ),
     ),
-    iconTheme: IconThemeData(
+    iconTheme: const IconThemeData(
       color: AppColors.accent_dark,
     ),
-    dividerTheme: DividerThemeData(
+    dividerTheme: const DividerThemeData(
       color: AppColors.accent_dark,
       thickness: 3,
     ),
@@ -113,10 +110,9 @@ abstract class AppTheme
           ),
           backgroundColor: MaterialStateProperty.all(
             AppColors.accent_dark,
-          )
-      ),
+          )),
     ),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       selectedItemColor: AppColors.accent_dark,
       unselectedItemColor: AppColors.white,
     ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,10 +18,11 @@ class SettingProvider extends ChangeNotifier{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString("local", newLocale);
     currentLocal = newLocale;
-    if(currentLocal=="ar")
+    if(currentLocal=="ar") {
       sharedPreferences.setBool("arSwitchValue", true);
-    else
+    } else {
       sharedPreferences.setBool("arSwitchValue", false);
+    }
     notifyListeners();
   }
 
@@ -31,10 +31,11 @@ class SettingProvider extends ChangeNotifier{
     currentTheme = newTheme ? ThemeMode.dark : ThemeMode.light;
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setBool("mode", currentTheme == ThemeMode.dark);
-   if(currentTheme == ThemeMode.dark)
+   if(currentTheme == ThemeMode.dark) {
      sharedPreferences.setBool("darkModeSwitchValue", true);
-   else
+   } else {
      sharedPreferences.setBool("darkModeSwitchValue", false);
+   }
     notifyListeners();
   }
 
@@ -54,7 +55,7 @@ class SettingProvider extends ChangeNotifier{
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     Object? mode = sharedPreferences.get("mode");
 
-    if(mode != null && (mode! as bool))
+    if(mode != null && (mode as bool))
     {
       currentTheme = ThemeMode.dark;
     }

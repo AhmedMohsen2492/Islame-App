@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islame_route/provider/setting_provider.dart';
 import 'package:islame_route/ui/utils/app_assets.dart';
-import 'package:islame_route/ui/utils/app_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
@@ -10,20 +9,19 @@ class RadioTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     SettingProvider provider = Provider.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Image.asset(AppAssets.radioTabLogo),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Text(
           AppLocalizations.of(context)!.holy_quran_radio,
           style: Theme.of(context).textTheme.bodyLarge,
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Row(
@@ -31,27 +29,29 @@ class RadioTab extends StatelessWidget {
           children: [
             IconButton(
               iconSize: 40,
-              onPressed: (){},
+              onPressed: () {},
               icon: Icon(
-                provider.currentLocal=="en" ?
-                Icons.skip_previous : Icons.skip_next,
+                provider.currentLocal == "en"
+                    ? Icons.skip_previous
+                    : Icons.skip_next,
                 size: 40,
               ),
             ),
             IconButton(
               iconSize: 70,
-                onPressed: (){},
-                icon: Icon(
-                    Icons.play_arrow,
-                    size: 70,
-                ),
+              onPressed: () {},
+              icon: const Icon(
+                Icons.play_arrow,
+                size: 70,
+              ),
             ),
             IconButton(
               iconSize: 40,
-              onPressed: (){},
+              onPressed: () {},
               icon: Icon(
-                provider.currentLocal=="en" ?
-                Icons.skip_next : Icons.skip_previous,
+                provider.currentLocal == "en"
+                    ? Icons.skip_next
+                    : Icons.skip_previous,
                 size: 40,
               ),
             ),
