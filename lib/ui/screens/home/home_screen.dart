@@ -59,48 +59,45 @@ class _HomeScreenState extends State<HomeScreen> {
     data: provider.currentTheme == ThemeMode.light  ?
     Theme.of(context).copyWith(canvasColor: AppColors.primary) :
     Theme.of(context).copyWith(canvasColor: AppColors.primary_dark),
-    child: SizedBox(
-      height: MediaQuery.of(context).size.height * 0.09,
-      child: BottomNavigationBar(
-        iconSize: MediaQuery.of(context).size.height*0.03,
-        selectedIconTheme: IconThemeData(
-          size: MediaQuery.of(context).size.height*0.04,
-        ),
-        onTap: onItemTapped,
-        currentIndex: selectedIndex,
-        items: [
-          BottomNavigationBarItem(
-              icon: ImageIcon(
-                AssetImage(AppAssets.icQuran),
-              ),
-              label: AppLocalizations.of(context)!.quran ,
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage(AppAssets.icAhadeth),
-            ),
-            label: AppLocalizations.of(context)!.ahadeth ,
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage(AppAssets.icSebha),
-            ),
-            label: AppLocalizations.of(context)!.sebha ,
-          ),
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage(AppAssets.icRadio),
-            ),
-            label: AppLocalizations.of(context)!.radio ,
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings
-            ),
-            label: AppLocalizations.of(context)!.settings ,
-          ),
-        ],
+    child: BottomNavigationBar(
+      iconSize: 25,
+      selectedIconTheme: IconThemeData(
+        size: 30,
       ),
+      onTap: onItemTapped,
+      currentIndex: selectedIndex,
+      items: [
+        BottomNavigationBarItem(
+            icon: ImageIcon(
+              AssetImage(AppAssets.icQuran),
+            ),
+            label: AppLocalizations.of(context)!.quran ,
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(AppAssets.icAhadeth),
+          ),
+          label: AppLocalizations.of(context)!.ahadeth ,
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(AppAssets.icSebha),
+          ),
+          label: AppLocalizations.of(context)!.sebha ,
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(
+            AssetImage(AppAssets.icRadio),
+          ),
+          label: AppLocalizations.of(context)!.radio ,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.settings
+          ),
+          label: AppLocalizations.of(context)!.settings ,
+        ),
+      ],
     ),
   );
 

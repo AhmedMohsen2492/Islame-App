@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:islame_route/provider/setting_provider.dart';
 import 'package:islame_route/ui/screens/home/home_screen.dart';
@@ -7,18 +8,16 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islame_route/ui/utils/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp( ChangeNotifierProvider(
       create: (_)=> SettingProvider(),
       child: MyApp()
-    )
-  );
+    ));
 }
 
-
-class MyApp extends StatelessWidget {
-
+  class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SettingProvider provider = Provider.of(context);
     return MaterialApp(

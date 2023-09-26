@@ -25,71 +25,69 @@ class _SebhaTabState extends State<SebhaTab> {
       AppLocalizations.of(context)!.alhamd_allah,
       AppLocalizations.of(context)!.allah_akbar];
 
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children:[
-          Container(
-            height: MediaQuery.of(context).size.height/2.54,
-            child: Stack(
-              alignment: AlignmentDirectional.topCenter,
-              children: [
-                Image.asset( provider.currentTheme == ThemeMode.light?
-                  AppAssets.seb7aHead : AppAssets.seb7aHead_dark,
-                ),
-                Container(
-                  alignment: AlignmentDirectional.bottomCenter,
-                  child: AnimatedRotation(
-                    turns: angle,
-                    duration: Duration(milliseconds: 300),
-                    child: Image(
-                      image: AssetImage(provider.currentTheme == ThemeMode.light?
-                        AppAssets.seb7aBody : AppAssets.seb7aBody_dark,
-                      ),
-                    ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children:[
+        Stack(
+          clipBehavior: Clip.none,
+          alignment: AlignmentDirectional.topCenter,
+          children: [
+            Positioned(
+              top: -74.855,
+              child: Image.asset( provider.currentTheme == ThemeMode.light?
+                AppAssets.seb7aHead : AppAssets.seb7aHead_dark,
+              ),
+            ),
+            Container(
+              alignment: AlignmentDirectional.bottomCenter,
+              child: AnimatedRotation(
+                turns: angle,
+                duration: Duration(milliseconds: 300),
+                child: Image(
+                  image: AssetImage(provider.currentTheme == ThemeMode.light?
+                    AppAssets.seb7aBody : AppAssets.seb7aBody_dark,
                   ),
                 ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Text(
-            AppLocalizations.of(context)!.number_of_praises,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(25),
-              color: provider.currentTheme == ThemeMode.light ?
-              AppColors.primary : Color(0xff141A2E),
-            ),
-            padding: EdgeInsets.all(20),
-            child: Text(
-              "$numberOfPraises",
-              style: Theme.of(context).textTheme.bodyMedium,
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          ElevatedButton(
-              onPressed: () {
-                changeZkr();
-              },
-              child: Text(
-                "${azkar[zkrNumber]}",
-                style:Theme.of(context).textTheme.bodySmall,
               ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        Text(
+          AppLocalizations.of(context)!.number_of_praises,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyLarge,
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: provider.currentTheme == ThemeMode.light ?
+            AppColors.primary : Color(0xff141A2E),
           ),
-          Spacer(),
-        ]
-      ),
+          padding: EdgeInsets.all(20),
+          child: Text(
+            "$numberOfPraises",
+            style: Theme.of(context).textTheme.bodyMedium,
+          ),
+        ),
+        SizedBox(
+          height: 30,
+        ),
+        ElevatedButton(
+            onPressed: () {
+              changeZkr();
+            },
+            child: Text(
+              "${azkar[zkrNumber]}",
+              style:Theme.of(context).textTheme.bodySmall,
+            ),
+        ),
+      ]
     );
   }
 
