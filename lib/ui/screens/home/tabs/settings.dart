@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islame_route/provider/setting_provider.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../utils/app_theme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -12,11 +15,9 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
 
-  bool arSwitchValue = false;
-  bool darkModeSwitchValue = false;
-
   @override
   Widget build(BuildContext context) {
+    SettingProvider provider = Provider.of(context);
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -24,32 +25,28 @@ class _SettingScreenState extends State<SettingScreen> {
         children: [
           Text(
             AppLocalizations.of(context)!.settings,
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.w600,
-            ),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           SizedBox(height: 30,),
           Row(
             children: [
               Text(
                 "Enable arabic(العربيه)",
-                style: TextStyle(
-                  color: AppColors.accent,
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
-                ),
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               Spacer(),
               Switch(
-                value: arSwitchValue,
-                onChanged: (newValue)
+                value: SettingProvider.arSwitchValue,
+                onChanged: (newValue) async
                 {
-                  setState(() {});
-                  arSwitchValue = newValue;
-
+                  SettingProvider.arSwitchValue = newValue;
+                  if(SettingProvider.arSwitchValue)
+                      provider.changeCurrentLocal("ar");
+                  else
+                      provider.changeCurrentLocal("en");
                 },
-                activeColor: AppColors.primary,
+                activeColor: provider.currentTheme==ThemeMode.light?
+                AppColors.primary : AppColors.accent_dark,
               ),
             ],
           ),
@@ -58,21 +55,25 @@ class _SettingScreenState extends State<SettingScreen> {
             children: [
               Text(
                 AppLocalizations.of(context)!.dark_mode,
-                style: TextStyle(
-                  color: AppColors.accent,
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
-                ),
+                style: Theme.of(context).textTheme.labelMedium,
               ),
               Spacer(),
               Switch(
-                value: darkModeSwitchValue,
+                value: SettingProvider.darkModeSwitchValue,
                 onChanged: (newValue)
                 {
-                  setState(() {});
-                  darkModeSwitchValue = newValue;
+                  SettingProvider.darkModeSwitchValue = newValue;
+                  if(SettingProvider.darkModeSwitchValue)
+                  {
+                    provider.setCurrentTheme(true);
+                  }
+                  else
+                  {
+                    provider.setCurrentTheme(false);
+                  }
                 },
-                activeColor: AppColors.primary,
+                activeColor: provider.currentTheme==ThemeMode.light?
+                AppColors.primary : AppColors.accent_dark,
               ),
             ],
           ),

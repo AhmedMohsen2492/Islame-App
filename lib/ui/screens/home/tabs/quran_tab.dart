@@ -17,22 +17,13 @@ class QuranTab extends StatelessWidget {
           flex: 3,
             child: Image.asset(AppAssets.quranTabLogo)
         ),
-        Divider(
-          color: AppColors.primary,
-          thickness: 3,
-        ),
+        Divider(),
         Text(
           AppLocalizations.of(context)!.sura_name,
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w600,
-          ),
           textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
-        Divider(
-          color: AppColors.primary,
-          thickness: 3,
-        ),
+        Divider(),
         Expanded(
           flex: 7,
           child: ListView.builder(
@@ -48,8 +39,7 @@ class QuranTab extends StatelessWidget {
   {
     SuraDetailsArgument.isQuran = true;
     return InkWell(
-      onTap: ()
-      {
+      onTap: () {
         Navigator.pushNamed(
             context,
             SuraContent.routeName ,
@@ -62,10 +52,7 @@ class QuranTab extends StatelessWidget {
       child: Text(
         AppAssets.ArSuras[index],
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-        ),
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }

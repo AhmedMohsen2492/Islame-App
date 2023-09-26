@@ -18,22 +18,13 @@ class AhadethTab extends StatelessWidget {
             flex: 3,
             child: Image.asset(AppAssets.ahadethTabLogo)
         ),
-        Divider(
-          color: AppColors.primary,
-          thickness: 3,
-        ),
+        Divider(),
         Text(
           AppLocalizations.of(context)!.el_ahadeth,
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
           textAlign: TextAlign.center,
         ),
-        Divider(
-          color: AppColors.primary,
-          thickness: 3,
-        ),
+        Divider(),
         Expanded(
           flex: 7,
           child: ListView.builder(
@@ -49,8 +40,7 @@ class AhadethTab extends StatelessWidget {
   {
     SuraDetailsArgument.isQuran = !SuraDetailsArgument.isQuran;
     return InkWell(
-      onTap: ()
-      {
+      onTap: () {
         Navigator.pushNamed(context,
           SuraContent.routeName ,
           arguments:  SuraDetailsArgument(
@@ -63,10 +53,7 @@ class AhadethTab extends StatelessWidget {
         "${index+1} الحديث رقم ",
         textDirection: ui.TextDirection.ltr,
         textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 25,
-          fontWeight: FontWeight.w400,
-        ),
+        style: Theme.of(context).textTheme.bodyMedium,
       ),
     );
   }

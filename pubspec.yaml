@@ -15,11 +15,12 @@ dependencies:
     sdk: flutter
 
   flutter_native_splash: ^2.3.2
-
+  provider: ^6.0.5
   flutter_localizations:
     sdk: flutter
 
   intl: any
+  shared_preferences: ^2.2.1
 
   cupertino_icons: ^1.0.2
 

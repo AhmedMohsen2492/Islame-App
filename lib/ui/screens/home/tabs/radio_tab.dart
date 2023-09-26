@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:islame_route/provider/setting_provider.dart';
 import 'package:islame_route/ui/utils/app_assets.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    SettingProvider provider = Provider.of(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -17,10 +21,7 @@ class RadioTab extends StatelessWidget {
         ),
         Text(
           AppLocalizations.of(context)!.holy_quran_radio,
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
         SizedBox(
           height: 30,
@@ -32,8 +33,8 @@ class RadioTab extends StatelessWidget {
               iconSize: 40,
               onPressed: (){},
               icon: Icon(
-                Icons.skip_previous,
-                color: AppColors.primary,
+                provider.currentLocal=="en" ?
+                Icons.skip_previous : Icons.skip_next,
                 size: 40,
               ),
             ),
@@ -42,16 +43,15 @@ class RadioTab extends StatelessWidget {
                 onPressed: (){},
                 icon: Icon(
                     Icons.play_arrow,
-                  color: AppColors.primary,
-                  size: 70,
+                    size: 70,
                 ),
             ),
             IconButton(
               iconSize: 40,
               onPressed: (){},
               icon: Icon(
-                Icons.skip_next,
-                color: AppColors.primary,
+                provider.currentLocal=="en" ?
+                Icons.skip_next : Icons.skip_previous,
                 size: 40,
               ),
             ),

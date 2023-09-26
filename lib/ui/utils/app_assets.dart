@@ -11,9 +11,13 @@ abstract class AppAssets
   static const quranTabLogo = "${baseImagesPath}quran_tab_logo.png" ;
   static const radioTabLogo = "assets/images/radio.png" ;
   static const background = "assets/images/background.png" ;
+  static const background_dark = "assets/images/bg_dark.png" ;
 
   static const seb7aHead = "assets/images/head of seb7a.png" ;
   static const seb7aBody = "assets/images/body of seb7a.png" ;
+
+  static const seb7aHead_dark = "assets/images/headofseb7adark.png" ;
+  static const seb7aBody_dark = "assets/images/bodyofseb7adark.png" ;
 
   static List<String> ArSuras = ["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
     ,"يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون"

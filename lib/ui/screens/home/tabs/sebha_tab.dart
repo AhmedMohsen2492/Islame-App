@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islame_route/provider/setting_provider.dart';
 import 'package:islame_route/ui/utils/app_colors.dart';
+import 'package:provider/provider.dart';
 import '../../../utils/app_assets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -12,12 +14,13 @@ class SebhaTab extends StatefulWidget {
 class _SebhaTabState extends State<SebhaTab> {
   List<String> azkar = [];
   int zkrNumber = 0 ;
-  int numberOfPraises = 0 ;
+  static int numberOfPraises = 0 ;
   double angle = 0 ;
 
   @override
   Widget build(BuildContext context) {
 
+    SettingProvider provider = Provider.of(context);
     azkar = [AppLocalizations.of(context)!.subhan_allah,
       AppLocalizations.of(context)!.alhamd_allah,
       AppLocalizations.of(context)!.allah_akbar];
@@ -27,12 +30,12 @@ class _SebhaTabState extends State<SebhaTab> {
         mainAxisAlignment: MainAxisAlignment.center,
         children:[
           Container(
-            height: MediaQuery.of(context).size.height/2.52,
+            height: MediaQuery.of(context).size.height/2.54,
             child: Stack(
               alignment: AlignmentDirectional.topCenter,
               children: [
-                Image.asset(
-                  AppAssets.seb7aHead,
+                Image.asset( provider.currentTheme == ThemeMode.light?
+                  AppAssets.seb7aHead : AppAssets.seb7aHead_dark,
                 ),
                 Container(
                   alignment: AlignmentDirectional.bottomCenter,
@@ -40,7 +43,9 @@ class _SebhaTabState extends State<SebhaTab> {
                     turns: angle,
                     duration: Duration(milliseconds: 300),
                     child: Image(
-                      image: AssetImage(AppAssets.seb7aBody),
+                      image: AssetImage(provider.currentTheme == ThemeMode.light?
+                        AppAssets.seb7aBody : AppAssets.seb7aBody_dark,
+                      ),
                     ),
                   ),
                 ),
@@ -53,10 +58,7 @@ class _SebhaTabState extends State<SebhaTab> {
           Text(
             AppLocalizations.of(context)!.number_of_praises,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 25,
-            ),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           SizedBox(
             height: 30,
@@ -64,15 +66,13 @@ class _SebhaTabState extends State<SebhaTab> {
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
-              color: AppColors.primary,
+              color: provider.currentTheme == ThemeMode.light ?
+              AppColors.primary : Color(0xff141A2E),
             ),
             padding: EdgeInsets.all(20),
             child: Text(
               "$numberOfPraises",
-              style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontSize: 25,
-              ),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ),
           SizedBox(
@@ -82,22 +82,9 @@ class _SebhaTabState extends State<SebhaTab> {
               onPressed: () {
                 changeZkr();
               },
-            style: ButtonStyle(
-              shape: MaterialStateProperty.all(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-              ),
-              backgroundColor: MaterialStateProperty.all(
-                AppColors.primary,
-              )
-            ),
               child: Text(
                 "${azkar[zkrNumber]}",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.w400
-                ),
+                style:Theme.of(context).textTheme.bodySmall,
               ),
           ),
           Spacer(),

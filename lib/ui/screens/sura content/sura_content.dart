@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islame_route/provider/setting_provider.dart';
+import 'package:provider/provider.dart';
 import '../../../model/sura_details_argument.dart';
 import '../../utils/app_assets.dart';
 import '../../utils/app_colors.dart';
@@ -20,7 +22,7 @@ class _SuraContentState extends State<SuraContent> {
 
   @override
   Widget build(BuildContext context) {
-
+    SettingProvider provider = Provider.of(context);
     var args = ModalRoute.of(context)?.settings.arguments as SuraDetailsArgument ;
     if(suraContent.isEmpty)
       {
@@ -30,29 +32,26 @@ class _SuraContentState extends State<SuraContent> {
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage(AppAssets.background),
+          image: AssetImage( provider.currentTheme == ThemeMode.light ?
+              AppAssets.background : AppAssets.background_dark,
+          ),
         ),
       ),
       child: Scaffold(
         backgroundColor: AppColors.transparent,
         appBar: AppBar(
-          iconTheme: IconThemeData(
-            color: AppColors.accent,
-          ),
+          iconTheme: IconThemeData(),
           title: Text(
             AppLocalizations.of(context)!.islami ,
-            style: AppTheme.appBarTitleTextStyle,
           ),
-          backgroundColor: AppColors.transparent,
-          elevation: 0,
-          centerTitle: true,
         ),
         body: suraContent.isEmpty ? Center(child: CircularProgressIndicator()) :Center(
           child: Container(
             margin: EdgeInsets.all(20.0),
             padding: EdgeInsets.all(20.0),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: provider.currentTheme == ThemeMode.light ?
+              Colors.white : Color(0xff141A2E),
               borderRadius: BorderRadius.circular(25),
               boxShadow: [
                 BoxShadow(
@@ -70,10 +69,7 @@ class _SuraContentState extends State<SuraContent> {
                       fontSize: 25,
                     ),
                   ),
-                  Divider(
-                    color: AppColors.primary,
-                    thickness: 2,
-                  ),
+                  Divider(),
                   Text(
                     textDirection: ui.TextDirection.rtl,
                     suraContent,
