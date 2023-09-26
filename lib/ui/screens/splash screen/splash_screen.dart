@@ -7,18 +7,17 @@ import 'package:provider/provider.dart';
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
-  static  String routeName = "SplashScreen" ;
+  static String routeName = "SplashScreen";
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacementNamed(context, HomeScreen.routeName);
     });
   }
@@ -31,8 +30,9 @@ class _SplashScreenState extends State<SplashScreen> {
         image: DecorationImage(
           fit: BoxFit.fill,
           image: AssetImage(
-            provider.currentTheme == ThemeMode.light ?
-          AppAssets.splash_light : AppAssets.splash_dark,
+            provider.currentTheme == ThemeMode.light
+                ? AppAssets.splash_light
+                : AppAssets.splash_dark,
           ),
         ),
       ),
