@@ -43,7 +43,7 @@ class SettingProvider extends ChangeNotifier {
     if (local != null && local != currentLocal) {
       currentLocal = local.toString();
     }
-    arSwitchValue = sharedPreferences.getBool("arSwitchValue")!;
+    arSwitchValue = sharedPreferences.getBool("arSwitchValue") ?? false;
     notifyListeners();
   }
 
@@ -56,7 +56,7 @@ class SettingProvider extends ChangeNotifier {
     } else {
       currentTheme = ThemeMode.light;
     }
-    darkModeSwitchValue = sharedPreferences.getBool("darkModeSwitchValue")!;
+    darkModeSwitchValue = sharedPreferences.getBool("darkModeSwitchValue") ?? false;
     notifyListeners();
   }
 }
