@@ -1,4 +1,4 @@
-# Islame
+# Islame App
 
 ## Description
 Islame is a mobile application that provides users with access to all the chapters (Surahs) of the Quran, a selection of Hadith (sayings of the Prophet Muhammad), a digital Tasbeeh (prayer beads), and a radio feature. The app is available in both Arabic and English languages, and supports light and dark mode.
