@@ -32,7 +32,7 @@ Islame is a mobile application that provides users with access to all the chapte
 
 
 ## Contributing
-If you'd like to contribute to the BMI Calculator project, please follow these guidelines:
+If you'd like to contribute to the Islame App project, please follow these guidelines:
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
 3. Make your changes and ensure the code passes all tests.
