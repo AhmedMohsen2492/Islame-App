@@ -24,20 +24,6 @@ Islame is a mobile application that provides users with access to all the chapte
 ### dark mode
 <img src="screenshots/dark_splash.png" width="200" height="400" /> <img src="screenshots/dark_quran.png" width="200" height="400" />  <img src="screenshots/dark_sora.png" width="200" height="400" />  <img src="screenshots/dark_ahadeth.png" width="200" height="400" />  <img src="screenshots/dark_seb7a.png" width="200" height="400" />  <img src="screenshots/dark_radio.png" width="200" height="400" /> <img src="screenshots/dark_setting.png" width="200" height="400" />
 
-## Installation
-1. Install the Flutter SDK
-2. Clone the project repository
-3. Install the project dependencies using flutter pub get
-4. Run the app using flutter run
-
-
-## Contributing
-If you'd like to contribute to the Islame App project, please follow these guidelines:
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and ensure the code passes all tests.
-4. Submit a pull request with a detailed description of your changes.
-
 ## Contact
 If you have any questions or feedback, please feel free to reach out to the project maintainers:
 - Ahmed Mohsen : ahmedmohsen2492@gmail.com
